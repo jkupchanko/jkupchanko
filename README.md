@@ -1,5 +1,5 @@
-<p>
-  <h3 align="center">⌨️ John Kupchanko</h3>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/20955511/199138068-0a7b7b75-a024-4f00-803f-30a19c5d1b2d.png" alt="John Kupchanko" /></a>
 </p>
 <p align="center">
 <a align="center" href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=302CF7&random=false&width=435&lines=Front+End+Developer;Smart+Contract+Developer;Content+Creator" alt="Typing SVG" /></a>
