@@ -1,5 +1,5 @@
 <p align="center">
-  <h3 align="center">⌨️ John Kupchanko</h3>
+  <h3>⌨️ John Kupchanko</h3>
 </p>
 </p>
 <p align="center">
