@@ -26,7 +26,7 @@
 <!-- BEGIN YOUTUBE-CARDS -->
 <!-- END YOUTUBE-CARDS -->
 
-[<img src="https://custom-icon-badges.demolab.com/badge/-Subscribe%20For%20More-red?style=for-the-badge&logo=video&logoColor=white"/>](https://www.youtube.com/c/BlockchainBuilders?sub_confirmation=1)
+[<img src="https://custom-icon-badges.demolab.com/badge/-Subscribe%20For%20More-red?style=for-the-badge&logo=video&logoColor=white"/>](https://www.youtube.com/@BlockchainBuilders/)
 
 [website]: https://jkupchanko.github.io/Portfolio
 [youtube]: https://www.youtube.com/@BlockchainBuilders/
