@@ -1,5 +1,6 @@
 <p>
   <h3 align="center">⌨️ John Kupchanko</h3>
+  <a align="center" href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=302CF7&random=false&width=435&lines=Front+End+Developer;Smart+Contract+Developer;Content+Creator" alt="Typing SVG" /></a>
 </p>
 </p>
 <p align="center">
