@@ -16,7 +16,7 @@
 
 My background sits between development and developer support. I’ve worked on smart contracts, front-end apps, documentation, and developer tooling, and I spend a lot of time helping builders figure out why something isn’t working and how to fix it. A lot of that work happens through guides, tutorials, and troubleshooting with developers who are trying to deploy or integrate new tools.
 
-I’ve worked with technologies like React, JavaScript, Solidity, Move, and SQL while building and supporting developer platforms. I enjoy breaking down complex systems, improving onboarding paths, and turning confusing setup processes into something people can actually follow.</p>
+I’ve worked with technologies like React, JavaScript, Solidity, Move, AI, and SQL while building and supporting developer platforms. I enjoy breaking down complex systems, improving onboarding paths, and turning confusing setup processes into something people can actually follow.</p>
 
 <details>
 <summary><h3>👨‍💻 John's Coding Journey</h3></summary>
