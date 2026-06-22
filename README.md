@@ -8,7 +8,6 @@
 <p align="center">
   <a href="https://www.youtube.com/@BlockchainBuilders"><img width="32px" alt="Youtube" title="Youtube" src="https://i.imgur.com/qiXu7b2.png"/></a>
   <a href="https://www.linkedin.com/in/john-kupchanko/"><img width="32px" alt="LinkedIn" title="LinkedIn" src="https://i.imgur.com/yRpa1dQ.png"/></a>
-  <a href="https://jkupchanko.github.io/Portfolio"><img width="32px" alt="Portfolio" title="Portfolio" src="https://www.cleanpng.com/png-computer-icons-web-browser-1535230/"/></a>
 <p/>
 
 ## ⚡ About
