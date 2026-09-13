@@ -1,0 +1,17 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "title": "A — Warm editorial", "x": 0, "y": 0, "w": 880, "h": 1180 },
+    { "file": "DirectionB.dc.html", "title": "B — Soft dark", "x": 1000, "y": 0, "w": 880, "h": 1180 },
+    { "file": "DirectionC.dc.html", "title": "C — Bold minimal", "x": 2000, "y": 0, "w": 880, "h": 1240 }
+  ],
+  "annotations": [
+    {
+      "id": "brief",
+      "x": 0,
+      "y": -150,
+      "w": 700,
+      "text": "Three directions for the profile README. Pick one and I'll build the real thing.\nWebsite URL is a placeholder — send me the real one."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}

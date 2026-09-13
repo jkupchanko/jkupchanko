@@ -26,6 +26,8 @@ CHARS = (
 )
 
 FACES = {
+    "serif400": ("instrument-serif-400.woff2", "Serif", 400),
+    "serifitalic": ("instrument-serif-italic.woff2", "SerifItalic", 400),
     "grotesk700": ("space-grotesk-700.woff2", "Grotesk", 700),
     "grotesk500": ("space-grotesk-500.woff2", "Grotesk", 500),
     "mono400": ("jetbrains-mono-400.woff2", "Mono", 400),
@@ -37,7 +39,7 @@ FACES = {
 _cache = {}
 
 
-def _subset_b64(filename, rebuild=False):
+def _subset_b64(filename, rebuild=False, chars=None):
     """Base64 of the subsetted face, from the committed cache when present.
 
     fontTools subsetting is not byte-reproducible across processes (glyph
@@ -45,15 +47,24 @@ def _subset_b64(filename, rebuild=False):
     Subsetting once and committing the result keeps every later render
     deterministic, which is what lets the scheduled workflow no-op cleanly.
     """
-    if filename in _cache:
-        return _cache[filename]
+    key = filename if chars is None else (filename, chars)
+    if key in _cache:
+        return _cache[key]
+    if chars is not None:
+        # a one-off charset (a link tile needs ~8 glyphs, not 101), subset live
+        # and never cached to disk - it is deterministic per charset anyway
+        return _subset_live(filename, chars, key)
     cached = os.path.join(CACHE, filename)
     if os.path.exists(cached) and not rebuild:
         with open(cached, "rb") as f:
             b64 = base64.b64encode(f.read()).decode("ascii")
-        _cache[filename] = b64
+        _cache[key] = b64
         return b64
 
+    return _subset_live(filename, CHARS, key, cached)
+
+
+def _subset_live(filename, chars, key, cached=None):
     font = TTFont(os.path.join(SRC, filename))
     opts = subset.Options()
     opts.flavor = "woff2"
@@ -65,7 +76,7 @@ def _subset_b64(filename, rebuild=False):
     opts.notdef_outline = True
     opts.recalc_bounds = True
     subsetter = subset.Subsetter(options=opts)
-    subsetter.populate(text=CHARS)
+    subsetter.populate(text=chars)
     subsetter.subset(font)
     # belt and braces: pin both timestamps so the bytes depend only on input
     head = font.get("head")
@@ -76,20 +87,25 @@ def _subset_b64(filename, rebuild=False):
     font.save(buf)
     font.close()
     raw = buf.getvalue()
-    os.makedirs(CACHE, exist_ok=True)
-    with open(cached, "wb") as f:
-        f.write(raw)
+    if cached:
+        os.makedirs(CACHE, exist_ok=True)
+        with open(cached, "wb") as f:
+            f.write(raw)
     b64 = base64.b64encode(raw).decode("ascii")
-    _cache[filename] = b64
+    _cache[key] = b64
     return b64
 
 
-def face_css(*keys):
-    """Return @font-face rules for the named faces, fonts inlined as data URIs."""
+def face_css(*keys, chars=None):
+    """@font-face rules for the named faces, fonts inlined as data URIs.
+
+    Pass `chars` to subset to just the glyphs one panel needs - a link tile
+    reading "LinkedIn" carries eight glyphs instead of a hundred.
+    """
     out = []
     for key in keys:
         filename, family, weight = FACES[key]
-        b64 = _subset_b64(filename)
+        b64 = _subset_b64(filename, chars=chars)
         out.append(
             "@font-face{font-family:'%s';font-style:normal;font-weight:%d;"
             "src:url(data:font/woff2;base64,%s) format('woff2');}" % (family, weight, b64)
