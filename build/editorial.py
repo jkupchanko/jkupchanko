@@ -100,7 +100,8 @@ def masthead(theme, uid):
 
 
 # ============================================================ link plates
-TW, TH = 516, 140               # authored at 2x, shown at 258x70
+TW, TH = 1280, 132              # full column width: three of these stack as an
+                                # index, so nothing wraps at any window size
 
 LINKS = [
     dict(key="linkedin", label="LinkedIn", handle="IN/JOHN-KUPCHANKO",
@@ -114,8 +115,8 @@ LINKS = [
 
 def icon(key, accent):
     """Line icons on a 24px grid, one stroke weight, scaled 2x to the plate."""
-    s = ('<g transform="translate(30 48) scale(1.75)" fill="none" stroke="%s" '
-         'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' % accent)
+    s = ('<g transform="translate(44 42) scale(2.0)" fill="none" stroke="%s" '
+         'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">' % accent)
     if key == "linkedin":
         s += ('<rect x="1.5" y="1.5" width="21" height="21" rx="3.5"/>'
               '<path d="M7 10.5V17"/><circle cx="7" cy="6.9" r="1.05" fill="%s" stroke="none"/>'
@@ -147,10 +148,13 @@ def plate(link, theme, uid):
         '<rect x="1" y="1" width="%d" height="%d" rx="3" fill="%s" stroke="%s" stroke-width="2"/>'
         % (TW - 2, TH - 2, p["raised"], p["rule"]),
         icon(link["key"], p["accent"]),
-        '<text x="94" y="74" class="d" fill="%s" font-size="38" letter-spacing="-.3">%s</text>'
+        '<text x="118" y="80" class="d" fill="%s" font-size="46" letter-spacing="-.4">%s</text>'
         % (p["ink"], link["label"]),
-        '<text x="96" y="104" class="d" fill="%s" font-size="21" letter-spacing="2.4">%s</text>'
-        % (p["muted"], link["handle"]),
+        '<text x="%d" y="78" class="d" fill="%s" font-size="24" letter-spacing="3" '
+        'text-anchor="end">%s</text>' % (TW - 92, p["muted"], link["handle"]),
+        '<path d="M%d 64 L%d 64 M%d 56 L%d 64 L%d 72" stroke="%s" stroke-width="2" fill="none" '
+        'stroke-linecap="round" stroke-linejoin="round"/>'
+        % (TW - 66, TW - 46, TW - 53, TW - 46, TW - 53, p["accent"]),
         "</g>",
     ]
     return (

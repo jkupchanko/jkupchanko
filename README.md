@@ -3,11 +3,11 @@
   <img src="assets/header-light.svg" width="100%" alt="John Kupchanko, developer and technical educator. I build things and help people understand how they work.">
 </picture>
 
-<p>
-<a href="https://www.linkedin.com/in/john-kupchanko/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-linkedin-dark.svg"><img src="assets/link-linkedin-light.svg" width="258" alt="LinkedIn, in/john-kupchanko"></picture></a>
-<a href="https://www.youtube.com/@BlockchainBuilders/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-youtube-dark.svg"><img src="assets/link-youtube-light.svg" width="258" alt="YouTube, Blockchain Builders"></picture></a>
-<a href="https://github.com/jkupchanko?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-repos-dark.svg"><img src="assets/link-repos-light.svg" width="258" alt="Repositories, 23 projects"></picture></a>
-</p>
+<a href="https://www.linkedin.com/in/john-kupchanko/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-linkedin-dark.svg"><img src="assets/link-linkedin-light.svg" width="100%" alt="LinkedIn, in/john-kupchanko"></picture></a>
+
+<a href="https://www.youtube.com/@BlockchainBuilders/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-youtube-dark.svg"><img src="assets/link-youtube-light.svg" width="100%" alt="YouTube, Blockchain Builders"></picture></a>
+
+<a href="https://github.com/jkupchanko?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-repos-dark.svg"><img src="assets/link-repos-light.svg" width="100%" alt="Repositories, 23 projects"></picture></a>
 
 ### Background
 
