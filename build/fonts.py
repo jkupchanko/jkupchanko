@@ -1,0 +1,78 @@
+"""Subset the GLASSHOUSE typefaces and emit base64 @font-face blocks.
+
+SVGs referenced from a README load through an <img> sandbox: no network, no
+external resources. A data: URI is not an external resource, so embedding the
+woff2 inline is the only way to keep the instrument typography.
+"""
+import base64
+import io
+import os
+
+from fontTools import subset
+from fontTools.ttLib import TTFont
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SRC = os.path.join(HERE, "fonts")
+
+# Generous ASCII: every glyph any panel might need, still tiny after subsetting.
+CHARS = (
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    "abcdefghijklmnopqrstuvwxyz"
+    "0123456789"
+    r" .,:;!?'" + '"' + r"()[]{}/\|-_+=<>@#$%&*^~`"
+    "→·—–•×"  # arrow, middot, dashes, bullet, times
+)
+
+FACES = {
+    "grotesk700": ("space-grotesk-700.woff2", "Grotesk", 700),
+    "grotesk500": ("space-grotesk-500.woff2", "Grotesk", 500),
+    "mono400": ("jetbrains-mono-400.woff2", "Mono", 400),
+    "mono500": ("jetbrains-mono-500.woff2", "Mono", 500),
+    "inter400": ("inter-400.woff2", "Inter", 400),
+    "inter500": ("inter-500.woff2", "Inter", 500),
+}
+
+_cache = {}
+
+
+def _subset_b64(filename):
+    if filename in _cache:
+        return _cache[filename]
+    font = TTFont(os.path.join(SRC, filename))
+    opts = subset.Options()
+    opts.flavor = "woff2"
+    opts.desubroutinize = True
+    opts.layout_features = ["kern", "liga", "calt", "tnum"]
+    opts.notdef_outline = True
+    opts.recalc_bounds = True
+    subsetter = subset.Subsetter(options=opts)
+    subsetter.populate(text=CHARS)
+    subsetter.subset(font)
+    buf = io.BytesIO()
+    font.flavor = "woff2"
+    font.save(buf)
+    font.close()
+    b64 = base64.b64encode(buf.getvalue()).decode("ascii")
+    _cache[filename] = b64
+    return b64
+
+
+def face_css(*keys):
+    """Return @font-face rules for the named faces, fonts inlined as data URIs."""
+    out = []
+    for key in keys:
+        filename, family, weight = FACES[key]
+        b64 = _subset_b64(filename)
+        out.append(
+            "@font-face{font-family:'%s';font-style:normal;font-weight:%d;"
+            "src:url(data:font/woff2;base64,%s) format('woff2');}" % (family, weight, b64)
+        )
+    return "".join(out)
+
+
+if __name__ == "__main__":
+    for key in FACES:
+        filename = FACES[key][0]
+        raw = os.path.getsize(os.path.join(SRC, filename))
+        sub = len(base64.b64decode(_subset_b64(filename)))
+        print(f"{key:12s} {raw:7,d} B  ->  {sub:6,d} B subset  ({sub*4//3:,d} B base64)")
