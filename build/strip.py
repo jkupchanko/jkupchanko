@@ -31,7 +31,7 @@ LABEL_Y = 62
 def cells(d):
     return [
         ("CONTRIBUTIONS", str(d["contributions"])),
-        ("REPOSITORIES", str(d["repositories"])),
+        ("ACTIVE DAYS", str(d["active_days"])),
         ("LONGEST STREAK", str(d["longest_streak"])),
         ("ON GITHUB SINCE", str(d["since"])),
     ]
@@ -89,8 +89,9 @@ def build(theme, uid):
         body.extend(p for p in parts if not p.startswith("<clipPath"))
         css.extend(kf)
 
-    label = ("%s contributions, %s repositories, longest streak %s days, on GitHub since %s."
-             % (d["contributions"], d["repositories"], d["longest_streak"], d["since"]))
+    label = ("%s contributions across %s active days, longest streak %s days, "
+             "on GitHub since %s."
+             % (d["contributions"], d["active_days"], d["longest_streak"], d["since"]))
     return ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d" '
             'role="img" aria-label="%s"><defs>%s</defs><style>%s</style>%s%s</svg>'
             % (W, H, W, H, label, "".join(defs), "".join(css), "".join(body), grect))

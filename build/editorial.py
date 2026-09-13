@@ -123,7 +123,7 @@ LINKS = [
          href="https://www.linkedin.com/in/john-kupchanko/"),
     dict(key="youtube", label="YouTube", handle="BLOCKCHAIN BUILDERS",
          href="https://www.youtube.com/@BlockchainBuilders/"),
-    dict(key="repos", label="Repositories", handle="23 PROJECTS",
+    dict(key="repos", label="Repositories", handle="PUBLIC REPOSITORIES",
          href="https://github.com/jkupchanko?tab=repositories"),
 ]
 
