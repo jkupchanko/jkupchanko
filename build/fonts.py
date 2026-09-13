@@ -5,6 +5,7 @@ external resources. A data: URI is not an external resource, so embedding the
 woff2 inline is the only way to keep the instrument typography.
 """
 import base64
+import hashlib
 import io
 import os
 
@@ -51,9 +52,18 @@ def _subset_b64(filename, rebuild=False, chars=None):
     if key in _cache:
         return _cache[key]
     if chars is not None:
-        # a one-off charset (a link tile needs ~8 glyphs, not 101), subset live
-        # and never cached to disk - it is deterministic per charset anyway
-        return _subset_live(filename, chars, key)
+        # A one-off charset (a link plate needs ~8 glyphs, not 101). Cache it
+        # under a hash of the charset: subsetting is NOT reproducible across
+        # processes, so without this every render differs and a scheduled
+        # refresh commits noise on days when nothing changed.
+        tag = hashlib.sha256(("".join(sorted(set(chars)))).encode("utf-8")).hexdigest()[:12]
+        cached = os.path.join(CACHE, "%s-%s" % (tag, filename))
+        if os.path.exists(cached):
+            with open(cached, "rb") as f:
+                b64 = base64.b64encode(f.read()).decode("ascii")
+            _cache[key] = b64
+            return b64
+        return _subset_live(filename, chars, key, cached)
     cached = os.path.join(CACHE, filename)
     if os.path.exists(cached) and not rebuild:
         with open(cached, "rb") as f:

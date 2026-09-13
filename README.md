@@ -1,13 +1,18 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg?v=2">
-  <img src="assets/header-light.svg?v=2" width="100%" alt="John Kupchanko, developer and technical educator. I build things and help people understand how they work.">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg?v=3">
+  <img src="assets/header-light.svg?v=3" width="100%" alt="John Kupchanko, developer and technical educator. I build things and help people understand how they work.">
 </picture>
 
-<a href="https://www.linkedin.com/in/john-kupchanko/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-linkedin-dark.svg?v=2"><img src="assets/link-linkedin-light.svg?v=2" width="100%" alt="LinkedIn, in/john-kupchanko"></picture></a>
+<a href="https://www.linkedin.com/in/john-kupchanko/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-linkedin-dark.svg?v=3"><img src="assets/link-linkedin-light.svg?v=3" width="100%" alt="LinkedIn, in/john-kupchanko"></picture></a>
 
-<a href="https://www.youtube.com/@BlockchainBuilders/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-youtube-dark.svg?v=2"><img src="assets/link-youtube-light.svg?v=2" width="100%" alt="YouTube, Blockchain Builders"></picture></a>
+<a href="https://www.youtube.com/@BlockchainBuilders/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-youtube-dark.svg?v=3"><img src="assets/link-youtube-light.svg?v=3" width="100%" alt="YouTube, Blockchain Builders"></picture></a>
 
-<a href="https://github.com/jkupchanko?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-repos-dark.svg?v=2"><img src="assets/link-repos-light.svg?v=2" width="100%" alt="Repositories, 23 projects"></picture></a>
+<a href="https://github.com/jkupchanko?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-repos-dark.svg?v=3"><img src="assets/link-repos-light.svg?v=3" width="100%" alt="Repositories, 23 projects"></picture></a>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg?v=3">
+  <img src="assets/stats-light.svg?v=3" width="100%" alt="189 contributions, 23 repositories, longest streak 6 days, on GitHub since 2023.">
+</picture>
 
 ### Background
 

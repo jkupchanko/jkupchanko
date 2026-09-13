@@ -31,7 +31,8 @@ DARK = dict(
 SETTLE = "cubic-bezier(.22,1,.36,1)"
 
 NAME = "John Kupchanko"
-EYEBROW = "DEVELOPER  ·  TECHNICAL EDUCATOR"
+ROLES = ["FRONT-END DEVELOPER", "SMART CONTRACT DEVELOPER", "TECHNICAL EDUCATOR"]
+ROLE_LOOP = 12.0                # seconds for all three
 STATEMENT = "I build things and help people understand how they work."
 
 
@@ -54,7 +55,7 @@ MX = 96                         # generous editorial margin
 
 def masthead(theme, uid):
     p = theme
-    chars = NAME + EYEBROW + STATEMENT + " ·"
+    chars = NAME + STATEMENT + "".join(ROLES) + " ·"
     css = [fonts.face_css("serif400", "serifitalic", chars=chars)]
     css.append(
         ".d{font-family:'Serif',Georgia,'Times New Roman',serif}"
@@ -71,11 +72,25 @@ def masthead(theme, uid):
     gfilter, grect = grain_defs("g" + uid, p["grain"])
     body = ['<rect width="%d" height="%d" fill="%s"/>' % (W_HEAD, H_HEAD, p["ground"])]
 
-    # eyebrow
-    body.append(
-        '<g class="w" style="--d:.12s"><text x="%d" y="112" class="d" fill="%s" font-size="19" '
-        'letter-spacing="4.2">%s</text></g>' % (MX, p["accent"], EYEBROW)
-    )
+    # the role line cycles: one moving element, small, at the top of the page
+    slot = 100.0 / len(ROLES)
+    for i, role in enumerate(ROLES):
+        a = i * slot
+        css.append(
+            "@keyframes role%d{"
+            "0%%,%.2f%%{clip-path:inset(0 100%% 0 0);opacity:1}"
+            "%.2f%%{clip-path:inset(0 -2%% 0 0);opacity:1}"
+            "%.2f%%{clip-path:inset(0 -2%% 0 0);opacity:1}"
+            "%.2f%%{clip-path:inset(0 0 0 100%%);opacity:1}"
+            "%.2f%%,100%%{clip-path:inset(0 0 0 100%%);opacity:0}}"
+            ".role%d{animation:role%d %ss %s %ss infinite both}"
+            % (i, a, a + 7.5, a + slot - 6.5, a + slot - 1.0, a + slot - 0.8,
+               i, i, ROLE_LOOP, SETTLE, 0.9)
+        )
+        body.append(
+            '<g class="role%d"><text x="%d" y="112" class="d" fill="%s" font-size="19" '
+            'letter-spacing="4.2">%s</text></g>' % (i, MX, p["accent"], role)
+        )
     # the name, given the room it deserves
     body.append(
         '<g class="w" style="--d:.28s"><text x="%d" y="238" class="d" fill="%s" font-size="118" '
