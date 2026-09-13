@@ -23,6 +23,11 @@ React · TypeScript · JavaScript · Solidity · Move · Python · SQL
 
 **BS, Mechanical Engineering**, University of Nevada, Reno
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jkupchanko/jkupchanko/output/snake-dark.svg">
+  <img src="https://raw.githubusercontent.com/jkupchanko/jkupchanko/output/snake-light.svg" width="100%" alt="A year of contributions, drawn as a snake eating the squares off the graph.">
+</picture>
+
 <details>
 <summary>Certifications</summary>
 
