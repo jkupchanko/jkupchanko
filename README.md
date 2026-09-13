@@ -1,55 +1,61 @@
-# 🏄‍♂️ John Kupchanko
-**`(Developer/Marketing)`**
+<img src="assets/hero.svg" width="100%" alt="John Kupchanko. Developer relations, vector search, Qdrant. A three-layer HNSW index of 245 nodes and 462 edges, with a query routing down through the layers to its nearest neighbor in 12 hops.">
 
-<p align="center">
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F75C7E&random=false&width=435&lines=Front+End+Developer;Smart+Contract+Developer;Technical+Educator" alt="Typing SVG" /></a>
-</p>
+I work in developer relations at Qdrant, which mostly means building things with vector search and then explaining how they work.
 
-<p align="center">
-  <a href="https://www.linkedin.com/in/john-kupchanko/"><img width="32px" alt="LinkedIn" title="LinkedIn" src="https://i.imgur.com/yRpa1dQ.png"/></a>
-<p/>
+Before this I spent a few years on smart contracts and front-end apps, a lot of it helping other developers get unstuck: docs, tutorials, and the kind of troubleshooting where somebody's deploy fails for a reason nobody wrote down. Same job, different stack.
 
-## ⚡ About
-<p>I build things and help people understand how they work.
+Lately that looks like retrieval benchmarks, HNSW visualizations, and demos that put an index in front of people instead of describing one to them.
 
-My background sits between development and developer support. I’ve worked on smart contracts, front-end apps, documentation, and developer tooling, and I spend a lot of time helping builders figure out why something isn’t working and how to fix it. A lot of that work happens through guides, tutorials, and troubleshooting with developers who are trying to deploy or integrate new tools.
+<img src="assets/shelf.svg" width="100%" alt="Selected work: qdrant-hnsw-live, code-search-bench, elden-ring-vector-search, qdrant-geometry-viewer, debate-night, and contributions to qdrant/landing_page.">
 
-I’ve worked with technologies like React, JavaScript, Solidity, Move, AI, and SQL while building and supporting developer platforms. I enjoy breaking down complex systems, improving onboarding paths, and turning confusing setup processes into something people can actually follow.</p>
+Open to read: **[qdrant-hnsw-live](https://github.com/jkupchanko/qdrant-hnsw-live)** &nbsp;·&nbsp; **[qdrant/landing_page](https://github.com/qdrant/landing_page)**
+
+<img src="assets/activity.svg" width="100%" alt="Activity over the last 53 weeks: 87 contributions, 57 commits, 26 pull requests, 24 active days, longest streak 6 days, peak day 28. Language mix weighted by recency is TypeScript 30 percent, JavaScript 29 percent, Python 22 percent, Move 17 percent.">
+
+**[LinkedIn](https://www.linkedin.com/in/john-kupchanko/)** &nbsp;·&nbsp; **[YouTube](https://www.youtube.com/@BlockchainBuilders/)**
 
 <details>
-<summary><h3>👨‍💻 John's Coding Journey</h3></summary>
+<summary>Earlier work and credentials</summary>
+
+<br>
+
+Smart contract and front-end development, mostly 2022 to 2024.
+
+| Institution | Credential |
+| --- | --- |
+| Metana.io | Advanced Solidity Bootcamp |
+| Blockchain Council | Certified Smart Contract Developer |
+| Blockchain Council | Certified Solidity Developer |
+| knowledgehut upGrad | React.js Developer |
+| Udemy | DApp with Solidity and React |
+| Codecademy | JavaScript, and Building Interactive JavaScript Websites |
+
+Bachelor of Science, Mechanical Engineering, University of Nevada, Reno.
+
 </details>
 
-### 🧰 Languages and Tools
+<details>
+<summary>How these panels are built</summary>
 
-<img align="left" alt="JavaScript" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
-<img align="left" alt="React" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
-<img align="left" alt="NodeJS" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
-<img align="left" alt="GitHub" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
-<img align="left" alt="GitHub" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg" />
+<br>
 
-[<img src="https://custom-icon-badges.demolab.com/badge/-Subscribe%20For%20More-red?style=for-the-badge&logo=video&logoColor=white"/>](https://www.youtube.com/@BlockchainBuilders/)
+Every panel in this README is a generated SVG, not a template or a third-party
+badge service. `build/hnsw.py` builds an actual three-layer HNSW index and runs
+a real greedy descent through it; the node, edge, hop and query figures on the
+hero are read off that structure rather than written by hand. `build/live.py`
+pulls contribution and language data from the GitHub API, and a scheduled
+workflow re-renders the panels when the numbers move.
 
-## 👨‍🎓 Education
+GitHub renders README images in an `<img>` sandbox, so an SVG there gets no
+JavaScript, no network and no web fonts. The typefaces are subset to the 101
+glyphs these panels use and inlined as data URIs, and every animation is
+declarative CSS. Design tokens live in `build/glasshouse.py`.
 
-### 🎓 Degree
-- **Bachelors in Mechanical Engineering** - University of Reno, Nevada
+```
+python build/live.py      # refresh build/data/live.json
+python build/render.py    # re-render everything in assets/
+```
 
-### 📜 Certifications
-| Institution               | Certification                          |
-|---------------------------|----------------------------------------|
-| Metana.io                 | Advanced Solidity Bootcamp             |
-| Udemy                     | DApp - Solidity & React                |
-| Blockchain Council        | Certified Smart Contract Developer     |
-| Blockchain Council        | Certified Solidity Developer (CSD)     |
-| knowledgethut upGrad      | React.JS Developer                     |
-| Codecademy                | Building Interactive JavaScript Websites Course |
-| Codecademy                | JavaScript Course                      |
+Renders are byte-deterministic, so re-running with unchanged data produces no diff.
 
-### 🛠 Skills & Technologies
-- **Solidity**: Smart contract development, DApps
-- **React.js**: Frontend development for blockchain applications
-- **JavaScript**: Interactive websites, frontend development
-
-[website]: https://jkupchanko.github.io/Portfolio
-[youtube]: https://www.youtube.com/@BlockchainBuilders/
+</details>
